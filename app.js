@@ -10,7 +10,7 @@ const connect = mysql.createPool({
    password:'nandhu@123',
    database:'l9plltwp_projectdeal',
    native: true,
-   pool: { maxConnections: 50, maxIdleTime: 30 }
+   pool: { maxConnections: 1000, maxIdleTime: 30 }
 });
 app.use(function (req, res, next) {
     res.header("Access-Control-Allow-Origin", "*");
@@ -34,7 +34,7 @@ let createTodos = `create table if not exists bikeuser(
     email varchar(255),
     password varchar(255),
     username varchar(255),
-    dob varchar(255),
+    dob varchar(255)
 )`;
 
 
