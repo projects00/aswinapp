@@ -53,7 +53,7 @@ app.use(bodyParser.json());
 
 app.get('/',(req,res)=>{
 
-   return res.json("welcome to bus locator api ")
+   return res.json("welcome to Aswin bike service api.")
 })
 app.post('/register',(req,res)=>{
     let query = "insert into bikeuser set ?"
