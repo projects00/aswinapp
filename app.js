@@ -106,15 +106,15 @@ app.post('/login',(req,res)=>{
     conn.query(query,[req.body.email],(err,data)=>{
        
          if(data.length == 0){
-           return res.json({message:"invalid credential"})
+           return res.json({message:"invalid credential",login:false})
          }
          if(!bcrypt.compareSync(req.body.password,data[0].password)){
             
-           return  res.json({message:"check your password"})
+           return  res.json({message:"check your password",login:false})
          }
   
         let token = jwt.sign({user:data},"secret",{expiresIn:7200})
-      return res.json({message:"Logged in successfully",userid:data[0].id,token:token})
+      return res.json({message:"Logged in successfully",userid:data[0].id,token:token,login:true})
     })
 conn.release(); 
  })
